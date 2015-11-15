@@ -33,17 +33,32 @@ function Counter(iterable){
     };
 
     this.set = (item, amount) => {
-        if(Number.isInteger(amount) && amount > 0){
+        if(Number.isInteger(amount)){
             data[item] = amount;
         }else{
-            throw new Error("Must be a number bigger then 0");
+            throw new Error("Must be an integer");
         }
 
     };
 
+    this.update = (item, amount) => {
+        if(Number.isInteger(amount)){
+            data[item] += amount;
+        }else{
+            throw new Error("Must be an integer");
+        }
+
+    };
+
+    this.del = (item) => {
+        var temp = this.get(item);
+        delete data[item];
+        return temp;
+    };
+
     this.add = (counter) => {
         var o = {};
-        Object.assign(o, this.items());
+        Object.assign(o, data);
         for(var key in counter.items()){
             if(o[key] === undefined){
                 o[key] = counter.items()[key];
