@@ -76,7 +76,7 @@ function Counter(iterable){
 }
 
 module.exports = Counter;
-/*
+
 var c1 = new Counter();
 c1.set("abc", 12);
 console.log(c1.items());
@@ -85,4 +85,4 @@ console.log(c1.items());
 var c2 = new Counter(["aa","aa","bb","A","a"]);
 var c3 = new Counter({"a": 7, "b": 9});
 console.log( (c2.add(c3)).items());
-console.log( (new Counter(["c"]).add(new Counter({"c": 2, "j": 77}))).items())*/
+console.log( (new Counter(["c"]).add(new Counter({"c": 2, "j": 77}))).items())
