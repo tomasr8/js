@@ -67,7 +67,7 @@ Just like get, set, del and update, the add method can be chained aswell.
 ```javascript
 var c = new Counter({"abc": 20, "xyz": 10, "def": 15, "mno": 4});
 c.sum();
-// 30
+// 49
 
 c.mostCommon(2)
 // [["abc", 20], ["def", 15]]
