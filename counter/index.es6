@@ -1,5 +1,5 @@
 //var Counter = require('./jc.es6');
-var Counter = require('./jc2.es6');
+var Counter = require('./jc.es6');
 
 var c1 = new Counter(["aa","aa","bb","A","a", "A", "A"]);
 var c2 = new Counter([1, 1, 36, 789, 45, 45, 45, "das", "das", "das", "das"]);

@@ -1,35 +1,92 @@
 ### Javascript implementation of Python's collections.Counter
+___
 
-#### Usage:
+
+
+##### Instantiate:
 
 ```javascript
 var c = new Counter(["a", "b", "a"]);
-c.items()
+c.items();
 // {"a": 2, "b": 1}
+c.length()
+// 2
+
+var d = new Counter({"a": 2, "b": 1});
+d.items();
+// {"a": 2, "b": 1}
+d.length()
+// 2
+
+var e = new Counter();
+e.items();
+// {}
+e.length()
+// 0
 ```
 
+
+##### Change values:
 ```javascript
-c = new Counter({"a": 77, "b": 12});
-c.items()
-// {"a": 77, "b": 12}
+var c = new Counter({"a": 77, "b": 12});
+
+c.update("b", 5);
+c.get("b");
+// 17
+c.update("b", -10);
+c.get("b");
+// 7
+
+c.set("xyz", 56);
+c.get("xyz");
+// 56
+c.del("xyz");
+c.get("xyz");
+// 0
+
+c.get("value");
+// 0
+
+c.update("a", 5).update("a", -2).set("new val", 40).del("b");
+
 ```
 
+##### Add Counters together:
 ```javascript
-c = new Counter({"a": 77, "b": 12});
-c.get("a");
-// 77
-c.set("c", 10);
-c.get("c");
-// 10
-c.update("c", 5);
-c.get("c");
-// 15
+var c = new Counter([1, 1, 1, 2, 2, 3]);
+var d = new Counter([4, 4, 2, 2, 3, 1]);
+
+var combined = c.add(d);
+combined.items();
+// {"1": 4, "2": 4, "4": 2, "3": 2}
+```
+Just like get, set, del and update, the add method can be chained aswell.
+
+
+##### Utility:
+```javascript
+var c = new Counter({"abc": 20, "xyz": 10, "def": 15, "mno": 4});
+c.sum();
+// 30
+
+c.mostCommon(2)
+// [["abc", 20], ["def", 15]]
+
+for(var item of c){
+    console.log(item);
+    // ["abc", 20]
+    // ["def", 15]
+    // ["xyz", 10]
+    // ["mno", 4]
+}
 ```
 
-```javascript
-c1 = new Counter({"a": 77, "b": 12});
-c1 = new Counter(["a", "b", "b", "c"]);
-c3 = c1.add(c2);
-c3.items()
-// {"a": 78, "b": 14, "c": 1}
-```
+
+
+
+
+
+
+
+
+
