@@ -24,7 +24,6 @@ function Board() {
     [2, 4, 6]
   ];
 
-
 }
 
 Board.prototype.copy = function() {
@@ -38,7 +37,9 @@ Board.prototype.copy = function() {
 Board.prototype.move = function(player, i) {
   if(this.state[i] === this.empty){
     this.state[i] = player;
+    return true;
   }
+  return false;
 };
 
 Board.prototype.getMoves = function() {
@@ -49,7 +50,6 @@ Board.prototype.getMoves = function() {
       moves.push(i);
     }
   });
-
   return moves;
 };
 
@@ -87,13 +87,18 @@ Board.prototype.print = function() {
     if(i%3 === 0){
       res += "|"
     }
+
+    res += " ";
+
     if(c === this.X){
-      res += " " + chalk.green(this.X) + " ";
+      res += chalk.green(this.X);
     }else if (c === this.O) {
-      res += " " + chalk.yellow(this.O) + " ";
+      res += chalk.yellow(this.O);
     }else{
-      res += " " + this.empty + " ";
+      res += this.empty;
     }
+
+    res += " ";
 
     if(i%3 === 2){
       res += "|\n"
