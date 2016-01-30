@@ -1,0 +1,7 @@
+{
+  "name": "tictactoe player",
+  "dependencies": {
+    "chalk": "latest",
+    "readline-sync": "latest"
+  }
+}
