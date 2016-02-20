@@ -35,7 +35,6 @@ function logWinner(w){
     case "X":
       log(chalk.green("Winner: Computer"));
       break;
-    case "O":
       log(chalk.yellow("Winner: Human"));
       break;
     default:
@@ -54,9 +53,8 @@ function getBestMove(b, player) {
       boardCopy.move(player, c);
       return [c, minimax(boardCopy, otherPlayer, 2, -1000, 1000)];
     })
-    .sort((a, b) => {
-      return b[1] - a[1];
-    });
+    .sort((a, b) => { return b[1] - a[1] });
+
 
 
   //log(ratedMoves);
