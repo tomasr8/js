@@ -1,8 +1,14 @@
-String.prototype.format = function(...data){
-  var i = 0;
+'use strict';
+
+module.exports = format;
+
+function format(...data){
+  let i = 0;
   return this.replace(/\{\}/g, function(match){
     return data[i++];
   });
-};
+}
 
-console.log("{}, {}!".format("Hello", "world"));
+if(!String.prototype.format) {
+  String.prototype.format = format;
+}
