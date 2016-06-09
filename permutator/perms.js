@@ -18,7 +18,7 @@ var elems = [1, 2, 3],
   return perms;
 };
 
-var results = permutator(elems, "");
+var results = permutator(elems);
 
 console.log(results);
 console.log( results.map( c => c.split("") ) );
