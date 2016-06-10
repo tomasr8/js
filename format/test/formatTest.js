@@ -1,11 +1,9 @@
 'use strict';
 
 const assert = require('assert');
-const format = require('../format.es6');
+const format = require('../format.js');
 
-if(!String.prototype.format) {
-  String.prototype.format = format;
-}
+String.prototype.format = format;
 
 let str;
 
