@@ -10,7 +10,7 @@ function insertSort(arr, compare) {
 
       const current = arr[i];
       let index = i;
-      
+
       while (index > 0 && compare(current, arr[index - 1]) < 0) {
         arr[index] = arr[index - 1];
         index--;
