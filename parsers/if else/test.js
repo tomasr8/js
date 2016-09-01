@@ -1,9 +1,8 @@
 'use strict';
 
-const fs = require("fs");
 const util = require("util");
-const lex = require("./lexer.js");
-const parse = require("./parser.js");
+const lex = require("./lexer.js").lex;
+const parse = require("./parser.js").parse;
 const log = console.log.bind(console);
 
 
