@@ -19,9 +19,9 @@
 
     function parseBlock() {
       consume("{");
-      let ast = {};
-      if (curr.type !== "}") {
-        ast = parseIf();
+      let ast = [];
+      while (curr.type !== "}") {
+        ast.push(parseIf());
       }
       consume("}");
       return ast;
@@ -54,10 +54,17 @@
           ast.else.push({ block: parseBlock() });
         }
       }
-
       return ast;
     }
 
-    return parseIf(tokenized);
+    function parseProgram() {
+      let ast = [];
+      while (curr) {
+        ast.push(parseIf());
+      }
+      return ast;
+    }
+
+    return parseProgram();
   }
 })(typeof window === "object" ? window : exports);

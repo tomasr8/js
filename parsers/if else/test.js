@@ -17,5 +17,6 @@ if(){
   if(){}elseif(){}
 }`;
 
+
 log(lex(str));
 log(util.inspect(parse(lex(str)), false, null));
