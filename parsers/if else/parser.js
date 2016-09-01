@@ -1,5 +1,12 @@
 'use strict';
 
+/*
+ * <Grammar>
+ * program::= { if } // 1 or more if blocks
+ * if::= 'if' block {'elseif' block} ['else' block]
+ * block::= '{' program '}'
+*/
+
 (function(exports) {
   exports.parse = parse;
 
