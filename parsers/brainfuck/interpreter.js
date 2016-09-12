@@ -9,7 +9,6 @@ const log = console.log.bind(console);
 
   const memory = [0];
   let p = 0;
-  let stdout = [];
 
   const ops = {
     "+": () => {
@@ -28,7 +27,7 @@ const log = console.log.bind(console);
         throw new Error("Negative pointer value");
       }
     },
-    ".": () => {
+    ".": (stdout) => {
       stdout.push(String.fromCharCode(memory[p]));
       //log("Program output:", String.fromCharCode(memory[p]));
     },
@@ -37,13 +36,13 @@ const log = console.log.bind(console);
     }
   };
 
-  function evaluate(ast) {
+  function evaluate(ast, stdout = []) {
     ast.forEach(node => {
       if (node.type !== "block") {
-        ops[node.type]();
+        ops[node.type](stdout);
       } else {
         while (memory[p]) {
-          evaluate(node.instructions);
+          evaluate(node.instructions, stdout);
         }
       }
     });
