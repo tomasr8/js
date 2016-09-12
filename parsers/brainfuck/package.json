@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "readline-sync": "1.4.4"
+  },
+  "devDependencies": {
+    "chai": "3.5.0"
+  }
+}
